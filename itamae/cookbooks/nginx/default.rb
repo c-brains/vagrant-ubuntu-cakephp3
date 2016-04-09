@@ -1,6 +1,6 @@
 # coding: utf-8
 
-%w(nginx openssl).each do |pkg|
+%w(nginx).each do |pkg|
   package pkg do
     action :install
   end
