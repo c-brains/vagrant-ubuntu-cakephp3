@@ -2,4 +2,4 @@
 
 include_cookbook "language-ja"
 include_cookbook "itamae"
-include_cookbook "nginx"
+include_cookbook "phpenv"
