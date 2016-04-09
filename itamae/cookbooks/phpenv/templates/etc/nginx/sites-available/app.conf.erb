@@ -70,6 +70,11 @@ server {
     fastcgi_param SECURITY_SALT <%= node.cakephp.security_salt %>;
     fastcgi_param DATABASE_URL mysql://<%= node.mysql.app_users.app_user.username %>:<%= node.mysql.app_users.app_user.password %>@<%= node.mysql.db_host %>/<%= node.mysql.app_db_name %>;
     fastcgi_param DATABASE_TEST_URL mysql://<%= node.mysql.app_users.app_user.username %>:<%= node.mysql.app_users.app_user.password %>@<%= node.mysql.db_host %>/<%= node.mysql.app_test_db_name %>;
+
+    fastcgi_param CACHE_DEFAULT_URL <%= node.cakephp.cache_redis_url %>;
+    fastcgi_param CACHE_CAKECORE_URL <%= node.cakephp.cache_redis_url %>;
+    fastcgi_param CACHE_CAKEMODEL_URL <%= node.cakephp.cache_redis_url %>;
+    fastcgi_param CACHE_SESSION_URL <%= node.cakephp.cache_redis_url %>;
   }
 
 }

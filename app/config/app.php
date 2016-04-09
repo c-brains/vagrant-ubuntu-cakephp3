@@ -84,8 +84,6 @@ return [
      */
     'Cache' => [
         'default' => [
-            'className' => 'File',
-            'path' => CACHE,
             'url' => env('CACHE_DEFAULT_URL', null),
         ],
 
@@ -95,9 +93,7 @@ return [
          * Duration will be set to '+1 year' in bootstrap.php when debug = false
          */
         '_cake_core_' => [
-            'className' => 'File',
             'prefix' => 'myapp_cake_core_',
-            'path' => CACHE . 'persistent/',
             'serialize' => true,
             'duration' => '+2 minutes',
             'url' => env('CACHE_CAKECORE_URL', null),
@@ -110,12 +106,14 @@ return [
          * Duration will be set to '+1 year' in bootstrap.php when debug = false
          */
         '_cake_model_' => [
-            'className' => 'File',
             'prefix' => 'myapp_cake_model_',
-            'path' => CACHE . 'models/',
             'serialize' => true,
             'duration' => '+2 minutes',
             'url' => env('CACHE_CAKEMODEL_URL', null),
+        ],
+        'session' => [
+            'prefix' => 'php_session_',
+            'url' => env('CACHE_SESSION_URL', null),
         ],
     ],
 
@@ -319,6 +317,14 @@ return [
      * To use database sessions, load the SQL file located at config/Schema/sessions.sql
      */
     'Session' => [
-        'defaults' => 'php',
+        'cookie' => 'session_id',
+        'defaults' => 'cache',
+        'handler' => [
+            'config' => 'session'
+        ],
+        'ini' => [
+            'session.cookie_secure' => true,
+            'session.cookie_httponly' => true,
+        ],
     ],
 ];

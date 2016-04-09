@@ -4,9 +4,10 @@ include_cookbook "ppa-ondrej-php70-repository"
 include_cookbook "nginx"
 
 # PHP
-%w(php7.0-fpm php7.0-curl php7.0-intl php7.0-mbstring php7.0-sqlite3 php7.0-mysql).each do |pkg|
+%w(php7.0-fpm php7.0-curl php7.0-intl php7.0-mbstring php7.0-sqlite3 php7.0-mysql php-redis).each do |pkg|
   package pkg do
     action :install
+    notifies :reload, "service[php7.0-fpm]"
   end
 end
 

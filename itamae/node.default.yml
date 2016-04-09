@@ -1,6 +1,7 @@
 role: web
 cakephp:
   security_salt: 04e45987c68b97e850fc6d3b6cdb986b620b3bb7204c91900b4fcd6a803d46c7
+  cache_redis_url: redis://localhost:6379
 mysql:
   root_username: root
   root_password: password
