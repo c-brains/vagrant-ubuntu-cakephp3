@@ -13,6 +13,9 @@ node.reverse_merge!({
       'path_certificate_bundle' => '/etc/ssl/certs/www.example.com-bundle.crt',
       'path_private_key' => '/etc/ssl/private/www.example.com.private.key'
     }
+  },
+  'cakephp' => {
+    'debug' => true
   }
 })
 

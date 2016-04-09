@@ -65,5 +65,9 @@ server {
     fastcgi_index index.php;
     fastcgi_intercept_errors on;
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+
+    fastcgi_param DEBUG <%= node.cakephp.debug %>;
+    fastcgi_param SECURITY_SALT <%= node.cakephp.security_salt %>;
   }
+
 }
