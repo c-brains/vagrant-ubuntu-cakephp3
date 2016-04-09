@@ -2,6 +2,7 @@
 
 # default settings (for Development Environment)
 node.reverse_merge!({
+  'app_root' => '/var/www/app',
   'nginx' => {
     'default' => {
       'server_name' => 'www.example.com'
