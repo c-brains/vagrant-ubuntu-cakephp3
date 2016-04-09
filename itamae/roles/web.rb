@@ -16,10 +16,19 @@ node.reverse_merge!({
   },
   'cakephp' => {
     'debug' => true
-  }
+  },
+  'mysql' => {
+    'db_host' => 'localhost',
+    'charset' => 'utf8mb4',
+    'collation' => 'utf8mb4_general_ci',
+    'app_db_name' => 'cakeapp',
+    'app_test_db_name' => 'cakeapp_test',
+  },
 })
 
 include_cookbook "language-ja"
 include_cookbook "itamae"
 include_cookbook "ssl-certificate"
 include_cookbook "phpenv"
+include_cookbook "mysql-client"
+include_cookbook "mysql-server"

@@ -1,0 +1,4 @@
+[mysqld]
+character-set-server = <%= node.mysql.charset %>
+collation-server = <%= node.mysql.collation %>
+skip-character-set-client-handshake

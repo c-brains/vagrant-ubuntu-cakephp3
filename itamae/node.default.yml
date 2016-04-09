@@ -1,4 +1,15 @@
 role: web
 cakephp:
   security_salt: 04e45987c68b97e850fc6d3b6cdb986b620b3bb7204c91900b4fcd6a803d46c7
-
+mysql:
+  root_username: root
+  root_password: password
+  app_users:
+    app_user:
+      username: app_user
+      password: 'passw0rd'
+      priv_types: 'ALL'
+    readonly_user:
+      username: app_readonly
+      password: 'passw0rd'
+      priv_types: 'SELECT'
