@@ -9,5 +9,6 @@
 
 ```
 vagrant plugin install vagrant-multiplug
+cp itamae/node.default.yml itamae/node.yml
 vagrant up
 ```
