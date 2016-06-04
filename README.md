@@ -11,6 +11,7 @@
 vagrant plugin install vagrant-multiplug
 cp itamae/node.default.yml itamae/node.yml
 vagrant up
+vagrant ssh -c 'cd /var/www/app; composer install --no-interaction'
 ```
 
 ## provision in VM

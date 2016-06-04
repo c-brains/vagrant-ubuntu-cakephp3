@@ -14,16 +14,14 @@
  */
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
+use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
-
 $this->layout = false;
-
 if (!Configure::read('debug')):
     throw new NotFoundException('Please replace src/Template/Pages/home.ctp with your own version.');
 endif;
-
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
 <!DOCTYPE html>
@@ -41,7 +39,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 <body class="home">
     <header>
         <div class="header-image">
-            <?= $this->Html->image('http://cakephp.org/img/cake-logo.png') ?>
+            <?= $this->Html->image('http://cakephp.org/img/logo-cake.png') ?>
             <h1>Get the Ovens Ready</h1>
         </div>
     </header>
@@ -64,9 +62,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <div class="columns large-12 checks">
                 <h4>Environment</h4>
                 <?php if (version_compare(PHP_VERSION, '5.5.9', '>=')): ?>
-                    <p class="success">Your version of PHP is 5.5.9 or higher.</p>
+                    <p class="success">Your version of PHP is 5.5.9 or higher (detected <?= PHP_VERSION ?>).</p>
                 <?php else: ?>
-                    <p class="problem">Your version of PHP is too low. You need PHP 5.5.9 or higher to use CakePHP.</p>
+                    <p class="problem">Your version of PHP is too low. You need PHP 5.5.9 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</p>
                 <?php endif; ?>
 
                 <?php if (extension_loaded('mbstring')): ?>
@@ -132,6 +130,14 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <?php else: ?>
                     <p class="problem">CakePHP is NOT able to connect to the database.<br /><br /><?= $errorMsg ?></p>
                 <?php endif; ?>
+
+                <hr>
+                <h4>DebugKit</h4>
+                <?php if (Plugin::loaded('DebugKit')): ?>
+                    <p class="success">DebugKit is loaded.</p>
+                <?php else: ?>
+                    <p class="problem">DebugKit is NOT loaded. You need to either install pdo_sqlite, or define the "debug_kit" connection name.</p>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -176,6 +182,10 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <ul><li>CakePHP issues and pull requests</li></ul>
                     </li>
                     <li>
+                        <a href="http://discourse.cakephp.org/">CakePHP Forum</a>
+                        <ul><li>CakePHP official discussion forum</li></ul>
+                    </li>
+                    <li>
                         <a href="https://groups.google.com/group/cake-php">CakePHP Google Group</a>
                         <ul><li>Community mailing list</li></ul>
                     </li>
@@ -202,6 +212,10 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <li>
                         <a href="https://github.com/cakephp/">CakePHP Code</a>
                         <ul><li>For the Development of CakePHP Git repository, Downloads</li></ul>
+                    </li>
+                    <li>
+                        <a href="https://github.com/FriendsOfCake/awesome-cakephp">CakePHP Awesome List</a>
+                        <ul><li>A curated list of amazingly awesome CakePHP plugins, resources and shiny things.</li></ul>
                     </li>
                     <li>
                         <a href="http://www.cakephp.org">CakePHP</a>
