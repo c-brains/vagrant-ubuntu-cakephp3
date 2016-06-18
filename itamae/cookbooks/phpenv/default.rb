@@ -1,6 +1,5 @@
 # coding: utf-8
 
-include_cookbook "ppa-ondrej-php70-repository"
 include_cookbook "nginx"
 
 # PHP
@@ -21,14 +20,14 @@ execute "composer install" do
   not_if "test $(which /usr/local/bin/composer)"
 end
 
-directory "/home/vagrant/.composer" do
-  owner 'vagrant'
-  group 'vagrant'
+directory "/home/ubuntu/.composer" do
+  owner 'ubuntu'
+  group 'ubuntu'
 end
 
 # composer parallel install plugin https://github.com/hirak/prestissimo
 execute "prestissimo install (composer parallel install plugin)" do
-  user "vagrant"
+  user "ubuntu"
   command "composer global require hirak/prestissimo"
   not_if ("composer global show -i 2>&1 | grep -qi hirak/prestissimo")
 end
